@@ -35,6 +35,27 @@ uv run ruff check --fix .      # Auto-fix
 uv run pre-commit run --all-files
 ```
 
+## Running Notebooks (JupyterLab)
+
+Zed does not render `.ipynb` files. Use JupyterLab in the browser.
+
+**Start the server:**
+
+```bash
+uv run jupyter lab
+```
+
+Opens on http://localhost:8888 and auto-launches a browser tab. The notebooks pick up the project `.venv` via the `cookbooks` kernel.
+
+**Stop the server:**
+
+- Foreground: `Ctrl+C` twice in the terminal running it.
+- Background or lost terminal:
+  ```bash
+  uv run jupyter server list          # find the running server(s)
+  uv run jupyter server stop 8888     # stop by port
+  ```
+
 ## Code Style
 
 - **Line length:** 100 characters
